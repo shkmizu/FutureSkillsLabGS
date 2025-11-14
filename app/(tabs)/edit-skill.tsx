@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } => 'react';
 import {
   View,
   Text,
@@ -39,7 +39,7 @@ export default function EditSkillScreen() {
         setLevel(parsedSkill.level);
         setLearningGoal(parsedSkill.learningGoal);
       } catch {
-        Alert.alert('Error', 'Failed to load skill data', [
+        Alert.alert('Erro', 'Falha ao carregar os dados da habilidade', [
           {
             text: 'OK',
             onPress: () => router.back(),
@@ -88,15 +88,16 @@ export default function EditSkillScreen() {
     const success = await updateSkill(updatedSkill);
     setSaving(false);
 
+    // CORREÇÃO: Mensagem simples e retorno automático
     if (success) {
-      Alert.alert('Success', 'Skill updated successfully!', [
+      Alert.alert('Sucesso', 'Habilidade atualizada com sucesso!', [
         {
           text: 'OK',
           onPress: () => router.back(),
         },
       ]);
     } else {
-      Alert.alert('Error', 'Failed to update skill. Please try again.', [{ text: 'OK' }]);
+      Alert.alert('Erro', 'Falha ao atualizar a habilidade. Tente novamente.', [{ text: 'OK' }]);
     }
   };
 
@@ -104,27 +105,28 @@ export default function EditSkillScreen() {
     if (!skill) return;
 
     Alert.alert(
-      'Delete Skill',
-      `Are you sure you want to delete "${skill.name}"? This action cannot be undone.`,
+      'Excluir Habilidade',
+      `Tem certeza que deseja excluir "${skill.name}"? Esta ação não pode ser desfeita.`,
       [
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           style: 'cancel',
         },
         {
-          text: 'Delete',
+          text: 'Excluir',
           style: 'destructive',
           onPress: async () => {
             const success = await deleteSkill(skill.id);
             if (success) {
-              Alert.alert('Success', 'Skill deleted successfully!', [
+              // CORREÇÃO: Mensagem simples e retorno automático
+              Alert.alert('Sucesso', 'Habilidade removida com sucesso!', [
                 {
                   text: 'OK',
                   onPress: () => router.back(),
                 },
               ]);
             } else {
-              Alert.alert('Error', 'Failed to delete skill. Please try again.', [
+              Alert.alert('Erro', 'Falha ao excluir a habilidade. Tente novamente.', [
                 { text: 'OK' },
               ]);
             }
@@ -141,7 +143,7 @@ export default function EditSkillScreen() {
   if (!skill) {
     return (
       <View style={styles.loadingContainer}>
-        <Text style={styles.loadingText}>Loading...</Text>
+        <Text style={styles.loadingText}>Carregando...</Text>
       </View>
     );
   }
@@ -159,10 +161,10 @@ export default function EditSkillScreen() {
       >
         <View style={styles.form}>
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Skill Name *</Text>
+            <Text style={styles.label}>Nome da Habilidade *</Text>
             <TextInput
               style={[styles.input, errors.skillName && styles.inputError]}
-              placeholder="e.g., React Native, Public Speaking"
+              placeholder="Ex: React Native, Oratória"
               placeholderTextColor="#5A5A6E"
               value={skillName}
               onChangeText={setSkillName}
@@ -174,7 +176,7 @@ export default function EditSkillScreen() {
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Skill Category *</Text>
+            <Text style={styles.label}>Categoria da Habilidade *</Text>
             <View style={styles.buttonGroup}>
               <TouchableOpacity
                 style={[
@@ -214,7 +216,7 @@ export default function EditSkillScreen() {
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Proficiency Level *</Text>
+            <Text style={styles.label}>Nível de Proficiência *</Text>
             <View style={styles.buttonGroup}>
               <TouchableOpacity
                 style={[
@@ -230,7 +232,7 @@ export default function EditSkillScreen() {
                     level === 'Beginner' && styles.levelButtonTextActive,
                   ]}
                 >
-                  Beginner
+                  Iniciante
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
@@ -247,7 +249,7 @@ export default function EditSkillScreen() {
                     level === 'Intermediate' && styles.levelButtonTextActive,
                   ]}
                 >
-                  Intermediate
+                  Intermediário
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
@@ -264,21 +266,21 @@ export default function EditSkillScreen() {
                     level === 'Advanced' && styles.levelButtonTextActive,
                   ]}
                 >
-                  Advanced
+                  Avançado
                 </Text>
               </TouchableOpacity>
             </View>
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Learning Goal *</Text>
+            <Text style={styles.label}>Objetivo de Aprendizado *</Text>
             <TextInput
               style={[
                 styles.input,
                 styles.textArea,
                 errors.learningGoal && styles.inputError,
               ]}
-              placeholder="What do you want to achieve with this skill?"
+              placeholder="O que você deseja alcançar com esta habilidade?"
               placeholderTextColor="#5A5A6E"
               value={learningGoal}
               onChangeText={setLearningGoal}
@@ -301,7 +303,7 @@ export default function EditSkillScreen() {
             activeOpacity={0.7}
           >
             <Trash2 size={20} color="#FF6B6B" />
-            <Text style={styles.deleteButtonText}>Delete Skill</Text>
+            <Text style={styles.deleteButtonText}>Excluir Habilidade</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -312,7 +314,7 @@ export default function EditSkillScreen() {
           onPress={handleCancel}
           activeOpacity={0.7}
         >
-          <Text style={styles.cancelButtonText}>Cancel</Text>
+          <Text style={styles.cancelButtonText}>Cancelar</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.saveButton, saving && styles.saveButtonDisabled]}
@@ -321,7 +323,7 @@ export default function EditSkillScreen() {
           activeOpacity={0.8}
         >
           <Text style={styles.saveButtonText}>
-            {saving ? 'Saving...' : 'Save Changes'}
+            {saving ? 'Salvando...' : 'Salvar Alterações'}
           </Text>
         </TouchableOpacity>
       </View>
