@@ -61,15 +61,16 @@ export default function AddSkillScreen() {
 
     setSaving(false);
 
+    // CORREÇÃO: Mensagem simples e retorno automático
     if (success) {
-      Alert.alert('Success', 'Skill added successfully!', [
+      Alert.alert('Sucesso', 'Habilidade salva com sucesso!', [
         {
           text: 'OK',
           onPress: () => router.back(),
         },
       ]);
     } else {
-      Alert.alert('Error', 'Failed to save skill. Please try again.', [{ text: 'OK' }]);
+      Alert.alert('Erro', 'Falha ao salvar a habilidade. Tente novamente.', [{ text: 'OK' }]);
     }
   };
 
@@ -90,10 +91,10 @@ export default function AddSkillScreen() {
       >
         <View style={styles.form}>
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Skill Name *</Text>
+            <Text style={styles.label}>Nome da Habilidade *</Text>
             <TextInput
               style={[styles.input, errors.skillName && styles.inputError]}
-              placeholder="e.g., React Native, Public Speaking"
+              placeholder="Ex: React Native, Oratória"
               placeholderTextColor="#5A5A6E"
               value={skillName}
               onChangeText={setSkillName}
@@ -105,7 +106,7 @@ export default function AddSkillScreen() {
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Skill Category *</Text>
+            <Text style={styles.label}>Categoria da Habilidade *</Text>
             <View style={styles.buttonGroup}>
               <TouchableOpacity
                 style={[
@@ -145,7 +146,7 @@ export default function AddSkillScreen() {
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Proficiency Level *</Text>
+            <Text style={styles.label}>Nível de Proficiência *</Text>
             <View style={styles.buttonGroup}>
               <TouchableOpacity
                 style={[
@@ -161,7 +162,7 @@ export default function AddSkillScreen() {
                     level === 'Beginner' && styles.levelButtonTextActive,
                   ]}
                 >
-                  Beginner
+                  Iniciante
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
@@ -178,7 +179,7 @@ export default function AddSkillScreen() {
                     level === 'Intermediate' && styles.levelButtonTextActive,
                   ]}
                 >
-                  Intermediate
+                  Intermediário
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
@@ -195,21 +196,21 @@ export default function AddSkillScreen() {
                     level === 'Advanced' && styles.levelButtonTextActive,
                   ]}
                 >
-                  Advanced
+                  Avançado
                 </Text>
               </TouchableOpacity>
             </View>
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Learning Goal *</Text>
+            <Text style={styles.label}>Objetivo de Aprendizado *</Text>
             <TextInput
               style={[
                 styles.input,
                 styles.textArea,
                 errors.learningGoal && styles.inputError,
               ]}
-              placeholder="What do you want to achieve with this skill?"
+              placeholder="O que você deseja alcançar com esta habilidade?"
               placeholderTextColor="#5A5A6E"
               value={learningGoal}
               onChangeText={setLearningGoal}
@@ -234,7 +235,7 @@ export default function AddSkillScreen() {
           onPress={handleCancel}
           activeOpacity={0.7}
         >
-          <Text style={styles.cancelButtonText}>Cancel</Text>
+          <Text style={styles.cancelButtonText}>Cancelar</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.saveButton, saving && styles.saveButtonDisabled]}
@@ -243,7 +244,7 @@ export default function AddSkillScreen() {
           activeOpacity={0.8}
         >
           <Text style={styles.saveButtonText}>
-            {saving ? 'Saving...' : 'Save Skill'}
+            {saving ? 'Salvando...' : 'Salvar Habilidade'}
           </Text>
         </TouchableOpacity>
       </View>
