@@ -26,7 +26,7 @@ export default function TabLayout() {
       <Stack.Screen
         name="add-skill"
         options={{
-          title: 'Add New Skill',
+          title: 'Adicionar Nova Habilidade',
           presentation: 'modal',
           headerShown: true,
         }}
@@ -34,7 +34,7 @@ export default function TabLayout() {
       <Stack.Screen
         name="edit-skill"
         options={{
-          title: 'Edit Skill',
+          title: 'Editar Habilidade',
           presentation: 'modal',
           headerShown: true,
         }}
