@@ -40,7 +40,7 @@ export default function AddSkillScreen() {
 
     setErrors({
       skillName: nameValidation.valid ? '' : nameValidation.message,
-      learningGoal: goalValidation.valid ? '' : goalValidation.message,
+      learningGoal: goalValidation.valid ? '' : goalValidation.message, // CORRIGIDO
     });
 
     return nameValidation.valid && goalValidation.valid;
@@ -61,7 +61,6 @@ export default function AddSkillScreen() {
 
     setSaving(false);
 
-    // CORREÇÃO: Mensagem simples e retorno automático
     if (success) {
       Alert.alert('Sucesso', 'Habilidade salva com sucesso!', [
         {

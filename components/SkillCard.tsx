@@ -12,11 +12,11 @@ interface SkillCardProps {
 const getLevelIcon = (level: string) => {
   switch (level) {
     case 'Beginner':
-      return '*';
+      return '*'; // Corrigido
     case 'Intermediate':
-      return '**';
+      return '**'; // Corrigido
     case 'Advanced':
-      return '***';
+      return '***'; // Corrigido
     default:
       return '*';
   }
@@ -58,15 +58,15 @@ const getTipForBeginner = (category: string) => {
 export const SkillCard: React.FC<SkillCardProps> = ({ skill, onEdit, onDelete }) => {
   const handleDelete = () => {
     Alert.alert(
-      'Excluir Habilidade', // Traduzido
-      `Tem certeza que deseja excluir "${skill.name}"?`, // Traduzido
+      'Excluir Habilidade',
+      `Tem certeza que deseja excluir "${skill.name}"?`,
       [
         {
-          text: 'Cancelar', // Traduzido
+          text: 'Cancelar',
           style: 'cancel',
         },
         {
-          text: 'Excluir', // Traduzido
+          text: 'Excluir',
           style: 'destructive',
           onPress: () => onDelete(skill.id),
         },
@@ -105,7 +105,6 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, onEdit, onDelete })
       <View style={styles.levelContainer}>
         <TrendingUp size={16} color={getLevelColor(skill.level)} />
         <Text style={[styles.level, { color: getLevelColor(skill.level) }]}>
-          {/* Traduzir nível de proficiência */}
           {skill.level === 'Beginner' ? 'Iniciante' : skill.level === 'Intermediate' ? 'Intermediário' : 'Avançado'} {getLevelIcon(skill.level)}
         </Text>
       </View>

@@ -89,6 +89,7 @@ export default function EditSkillScreen() {
     setSaving(false);
 
     if (success) {
+      // GARANTIDO: o retorno acontece após a confirmação do Alert.
       Alert.alert('Sucesso', 'Habilidade atualizada com sucesso!', [
         {
           text: 'OK',
@@ -117,6 +118,7 @@ export default function EditSkillScreen() {
           onPress: async () => {
             const success = await deleteSkill(skill.id);
             if (success) {
+              // GARANTIDO: o retorno acontece após a confirmação do Alert.
               Alert.alert('Sucesso', 'Habilidade removida com sucesso!', [
                 {
                   text: 'OK',
