@@ -61,6 +61,7 @@ export default function AddSkillScreen() {
 
     setSaving(false);
 
+    // CORREÇÃO: Mensagem simples e retorno automático
     if (success) {
       Alert.alert('Sucesso', 'Habilidade salva com sucesso!', [
         {

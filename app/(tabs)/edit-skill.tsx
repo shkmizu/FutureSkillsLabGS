@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } => 'react';
 import {
   View,
   Text,
@@ -88,6 +88,7 @@ export default function EditSkillScreen() {
     const success = await updateSkill(updatedSkill);
     setSaving(false);
 
+    // CORREÇÃO: Mensagem simples e retorno automático
     if (success) {
       Alert.alert('Sucesso', 'Habilidade atualizada com sucesso!', [
         {
@@ -117,6 +118,10 @@ export default function EditSkillScreen() {
           onPress: async () => {
             const success = await deleteSkill(skill.id);
             if (success) {
+<<<<<<< HEAD
+=======
+              // CORREÇÃO: Mensagem simples e retorno automático
+>>>>>>> f4b8ed47c9d99b8dc66f07c55049b76360b056d2
               Alert.alert('Sucesso', 'Habilidade removida com sucesso!', [
                 {
                   text: 'OK',
