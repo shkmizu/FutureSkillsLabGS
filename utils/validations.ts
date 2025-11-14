@@ -9,27 +9,27 @@ export const validateSkillName = (name: string): ValidationResult => {
   if (!trimmedName) {
     return {
       valid: false,
-      message: 'Skill name is required',
+      message: 'O nome da habilidade é obrigatório',
     };
   }
 
   if (trimmedName.length < 2) {
     return {
       valid: false,
-      message: 'Skill name must be at least 2 characters',
+      message: 'O nome da habilidade deve ter pelo menos 2 caracteres',
     };
   }
 
   if (trimmedName.length > 50) {
     return {
       valid: false,
-      message: 'Skill name must be less than 50 characters',
+      message: 'O nome da habilidade deve ter menos de 50 caracteres',
     };
   }
 
   return {
     valid: true,
-    message: 'Valid',
+    message: 'Válido',
   };
 };
 
@@ -39,26 +39,26 @@ export const validateLearningGoal = (goal: string): ValidationResult => {
   if (!trimmedGoal) {
     return {
       valid: false,
-      message: 'Learning goal is required',
+      message: 'O objetivo de aprendizado é obrigatório',
     };
   }
 
   if (trimmedGoal.length < 10) {
     return {
       valid: false,
-      message: 'Learning goal must be at least 10 characters',
+      message: 'O objetivo de aprendizado deve ter pelo menos 10 caracteres',
     };
   }
 
   if (trimmedGoal.length > 500) {
     return {
       valid: false,
-      message: 'Learning goal must be less than 500 characters',
+      message: 'O objetivo de aprendizado deve ter menos de 500 caracteres',
     };
   }
 
   return {
     valid: true,
-    message: 'Valid',
+    message: 'Válido',
   };
 };

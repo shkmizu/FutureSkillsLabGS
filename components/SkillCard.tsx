@@ -12,13 +12,13 @@ interface SkillCardProps {
 const getLevelIcon = (level: string) => {
   switch (level) {
     case 'Beginner':
-      return '●';
+      return '*';
     case 'Intermediate':
-      return '●●';
+      return '**';
     case 'Advanced':
-      return '●●●';
+      return '***';
     default:
-      return '●';
+      return '*';
   }
 };
 
@@ -38,16 +38,16 @@ const getLevelColor = (level: string) => {
 const getTipForBeginner = (category: string) => {
   const tips = {
     'Hard Skill': [
-      'Tip: Start with beginner-friendly online courses!',
-      'Tip: Practice 10 minutes a day.',
-      'Tip: Build small projects to apply what you learn.',
-      'Tip: Join online communities for support.',
+      'Dica: Comece com cursos online para iniciantes!',
+      'Dica: Pratique 10 minutos por dia.',
+      'Dica: Crie pequenos projetos para aplicar o que você aprende.',
+      'Dica: Junte-se a comunidades online para suporte.',
     ],
     'Soft Skill': [
-      'Tip: Practice in real-world situations daily.',
-      'Tip: Read books and articles on this topic.',
-      'Tip: Seek feedback from mentors or peers.',
-      'Tip: Set small, achievable goals each week.',
+      'Dica: Pratique em situações reais diariamente.',
+      'Dica: Leia livros e artigos sobre o tema.',
+      'Dica: Busque feedback de mentores ou colegas.',
+      'Dica: Estabeleça metas pequenas e alcançáveis a cada semana.',
     ],
   };
 
@@ -58,15 +58,15 @@ const getTipForBeginner = (category: string) => {
 export const SkillCard: React.FC<SkillCardProps> = ({ skill, onEdit, onDelete }) => {
   const handleDelete = () => {
     Alert.alert(
-      'Delete Skill',
-      `Are you sure you want to delete "${skill.name}"?`,
+      'Excluir Habilidade', // Traduzido
+      `Tem certeza que deseja excluir "${skill.name}"?`, // Traduzido
       [
         {
-          text: 'Cancel',
+          text: 'Cancelar', // Traduzido
           style: 'cancel',
         },
         {
-          text: 'Delete',
+          text: 'Excluir', // Traduzido
           style: 'destructive',
           onPress: () => onDelete(skill.id),
         },
@@ -105,7 +105,8 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, onEdit, onDelete })
       <View style={styles.levelContainer}>
         <TrendingUp size={16} color={getLevelColor(skill.level)} />
         <Text style={[styles.level, { color: getLevelColor(skill.level) }]}>
-          {skill.level} {getLevelIcon(skill.level)}
+          {/* Traduzir nível de proficiência */}
+          {skill.level === 'Beginner' ? 'Iniciante' : skill.level === 'Intermediate' ? 'Intermediário' : 'Avançado'} {getLevelIcon(skill.level)}
         </Text>
       </View>
 

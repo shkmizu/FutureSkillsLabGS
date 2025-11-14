@@ -60,10 +60,11 @@ export default function HomeScreen() {
   const handleDelete = async (id: string) => {
     const success = await deleteSkill(id);
     if (success) {
-      Alert.alert('Success', 'Skill deleted successfully!', [{ text: 'OK' }]);
-      loadSkills();
+      // Confirmação e Recarregamento da Lista
+      Alert.alert('Sucesso', 'Habilidade removida!', [{ text: 'OK' }]);
+      loadSkills(); 
     } else {
-      Alert.alert('Error', 'Failed to delete skill. Please try again.', [{ text: 'OK' }]);
+      Alert.alert('Erro', 'Falha ao excluir a habilidade. Tente novamente.', [{ text: 'OK' }]);
     }
   };
 
@@ -94,15 +95,15 @@ export default function HomeScreen() {
   const renderEmptyState = () => (
     <View style={styles.emptyState}>
       <Zap size={64} color="#6C63FF" />
-      <Text style={styles.emptyTitle}>No skills added yet</Text>
-      <Text style={styles.emptySubtitle}>Start building your future!</Text>
+      <Text style={styles.emptyTitle}>Nenhuma habilidade adicionada ainda</Text>
+      <Text style={styles.emptySubtitle}>Comece a construir seu futuro!</Text>
       <TouchableOpacity
         style={styles.emptyButton}
         onPress={handleAddSkill}
         activeOpacity={0.8}
       >
         <Plus size={20} color="#FFFFFF" />
-        <Text style={styles.emptyButtonText}>Add Your First Skill</Text>
+        <Text style={styles.emptyButtonText}>Adicionar Sua Primeira Habilidade</Text>
       </TouchableOpacity>
     </View>
   );
@@ -111,7 +112,7 @@ export default function HomeScreen() {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#6C63FF" />
-        <Text style={styles.loadingText}>Loading skills...</Text>
+        <Text style={styles.loadingText}>Carregando habilidades...</Text>
       </View>
     );
   }
@@ -120,13 +121,13 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.filterContainer}>
-          {renderFilterButton('All', 'All Skills')}
+          {renderFilterButton('All', 'Todas as Habilidades')}
           {renderFilterButton('Hard Skill', 'Hard Skills')}
           {renderFilterButton('Soft Skill', 'Soft Skills')}
         </View>
         {filteredSkills.length > 0 && (
           <Text style={styles.countText}>
-            {filteredSkills.length} {filteredSkills.length === 1 ? 'skill' : 'skills'}
+            {filteredSkills.length} {filteredSkills.length === 1 ? 'habilidade' : 'habilidades'}
           </Text>
         )}
       </View>
