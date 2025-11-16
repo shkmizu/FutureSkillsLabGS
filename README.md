@@ -1,101 +1,75 @@
-
 # Future Skills Lab
 
-O **Future Skills Lab** é um aplicativo mobile desenvolvido em **React Native** com persistência local utilizando **AsyncStorage**, criado para ajudar pessoas a acompanhar o desenvolvimento de novas competências essenciais para o futuro do trabalho.
+## 🌐 Resumo do Projeto
 
-## 🎯 Objetivo do Aplicativo
-O aplicativo permite que o usuário:
-- Registre novas soft skills e hard skills que deseja aprender.
-- Marque seu progresso individual em cada habilidade.
-- Visualize uma lista persistente das habilidades salvas.
-- Edite ou remova habilidades conforme sua evolução.
-- Acompanhe sua jornada de aprendizado dentro de um laboratório pessoal de competências do futuro.
+O **Future Skills Lab** é uma aplicação mobile (cross-platform) desenvolvida em **React Native** utilizando o *Managed Workflow* do **Expo** e o **Expo Router** para navegação. O objetivo central é fornecer aos usuários uma ferramenta estruturada para registrar, categorizar e acompanhar o desenvolvimento de competências (Hard Skills e Soft Skills) essenciais para o futuro do mercado de trabalho.
+
+Todos os dados da jornada de aprendizado são mantidos com persistência local através do **AsyncStorage**.
+
+## 🎯 Objetivo de Negócio
+
+A aplicação está alinhada ao tema **"O Futuro do Trabalho"**. Ela permite que o usuário gerencie ativamente seu desenvolvimento profissional por meio de:
+
+* **Autoavaliação:** Registro do nível de proficiência e objetivos de aprendizado.
+* **Acompanhamento:** Visualização da lista de habilidades com filtros de categoria.
+* **Evolução:** Edição e exclusão de habilidades à medida que o conhecimento evolui.
+* **Aprendizado Contínuo:** Incentiva o registro e o acompanhamento de novas competências emergentes.
+
+## 📦 Recursos e Funcionalidades Implementadas
+
+O aplicativo possui um conjunto de funcionalidades estáveis, totalmente em Português:
+
+* **Gestão Completa de Habilidades (CRUD):** Adicionar, listar, editar e excluir habilidades.
+* **Localização:** Interface do usuário (labels, botões e mensagens) totalmente em **Português do Brasil**.
+* **Fluxo de UX Corrigido:**
+    * **Salvar/Editar:** Exibe uma mensagem de sucesso ("Habilidade salva com sucesso!") e retorna automaticamente à tela Home.
+    * **Excluir:** Remove a habilidade do armazenamento, exibe a confirmação e atualiza a lista de habilidades em tempo real.
+* **Categorização e Níveis:** Classificação por `Hard Skill`, `Soft Skill` e nível de proficiência (`Iniciante`, `Intermediário`, `Avançado`).
+* **Filtros Dinâmicos:** Filtra a lista de habilidades por tipo (Todas, Hard Skills ou Soft Skills).
+* **Persistência:** Utiliza `AsyncStorage` para manter os dados localmente.
 
 ## 🚀 Tecnologias Utilizadas
-- **React Native** (Expo ou CLI)
-- **AsyncStorage** para persistência local
-- **JavaScript / TypeScript**
-- **Hooks (useState, useEffect)**
-- **React Navigation** (opcional, caso organize telas)
 
-## 📦 Funcionalidades
-- Adicionar nova habilidade com descrição e categoria.
-- Atualizar o nível de progresso da habilidade (0 a 100%).
-- Listar todas as habilidades salvas.
-- Persistência automática usando AsyncStorage.
-- Interface simples, amigável e moderna.
+O projeto foi construído sobre uma base moderna e tipada:
 
-## 🧠 Conceito
-A ideia do app está alinhada ao tema **“O Futuro do Trabalho”**, permitindo que usuários se preparem para  
-o mercado por meio de autoavaliação, registro e acompanhamento de evolução em competências emergentes,  
-como:
-- Inteligência Artificial aplicada  
-- Pensamento crítico  
-- Automação e DevOps  
-- Aprendizado contínuo (Lifelong Learning)  
-- Resolução de problemas complexos  
-- Comunicação e colaboração digital  
+| Categoria | Tecnologia | Pacotes Chave |
+| :--- | :--- | :--- |
+| **Framework/Plataforma** | **React Native** & **Expo** | `react-native`, `expo`, `expo-status-bar` |
+| **Roteamento** | Expo Router | `expo-router`, `@react-navigation/*` |
+| **Persistência de Dados**| AsyncStorage | `@react-native-async-storage/async-storage` |
+| **Linguagem** | TypeScript | `typescript` |
+| **Utilidades** | Hooks e Validações | `useState`, `useEffect`, `useFocusEffect` |
 
-## 📁 Estrutura do Projeto (Exemplo)
-```
-FutureSkillsLab/
-├── src/
-│   ├── components/
-│   ├── screens/
-│   │   ├── Home.js
-│   │   ├── AddSkill.js
-│   │   ├── SkillDetails.js
-│   ├── storage/
-│   │   ├── skillsStorage.js
-│   ├── App.js
-├── package.json
-└── README.md
-```
+## 🛠 Instalação e Execução
 
-## 🛠 Como Executar
-1. Clone o repositório:
-```
-git clone https://github.com/usuario/FutureSkillsLab.git
-```
+Para configurar e rodar o projeto localmente, siga os passos abaixo:
 
-2. Instale as dependências:
-```
-npm install
-```
+### Pré-requisitos
 
-3. Execute o aplicativo:
-```
-npm start
-```
+1.  Node.js (versão LTS).
+2.  Git.
+3.  Expo Go instalado em seu dispositivo móvel (ou emulador/simulador).
 
-## 💾 Armazenamento Local (AsyncStorage)
-O app utiliza uma chave única:
-```
-"@futureSkillsLab:skills"
-```
+### Comandos de Inicialização
 
-Os dados são salvos em formato JSON:
-```
-[
-  {
-    "id": "uuid",
-    "name": "Machine Learning",
-    "category": "Tecnologia",
-    "progress": 40
-  }
-]
-```
+1.  **Clone o Repositório:**
+    ```bash
+    git clone [https://github.com/usuario/FutureSkillsLabGS.git](https://github.com/usuario/FutureSkillsLabGS.git)
+    cd FutureSkillsLabGS
+    ```
 
-## 📘 Melhorias Futuras
-- Modo escuro
-- Integração com API de sugestões de habilidades
-- Gráficos de progresso
-- Categorias avançadas
-- Gamificação com pontos e conquistas
+2.  **Instale as Dependências:**
+    ```bash
+    npm install
+    ```
 
-## 📄 Licença
-MIT License – fique à vontade para usar, modificar e melhorar.
+3.  **Execute o Aplicativo:**
+    (Use o flag `--clear` para garantir que o cache do Metro Bundler esteja limpo, resolvendo problemas de renderização.)
+    ```bash
+    npx expo start --clear
+    ```
+4.  Use o aplicativo **Expo Go** para escanear o QR Code exibido no terminal e iniciar a aplicação.
 
----
+## 📁 Estrutura do Código
 
-Desenvolvido para o desafio **Global Solution FIAP – Futuro do Trabalho**.
+A arquitetura de pastas segue o padrão de roteamento do Expo Router:
