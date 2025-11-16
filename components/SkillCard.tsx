@@ -12,11 +12,11 @@ interface SkillCardProps {
 const getLevelIcon = (level: string) => {
   switch (level) {
     case 'Beginner':
-      return '*'; // Corrigido
+      return '*'; 
     case 'Intermediate':
-      return '**'; // Corrigido
+      return '**'; 
     case 'Advanced':
-      return '***'; // Corrigido
+      return '***'; 
     default:
       return '*';
   }
@@ -56,23 +56,9 @@ const getTipForBeginner = (category: string) => {
 };
 
 export const SkillCard: React.FC<SkillCardProps> = ({ skill, onEdit, onDelete }) => {
+  // Ação agora é executada diretamente, sem um Alerta interno de confirmação
   const handleDelete = () => {
-    Alert.alert(
-      'Excluir Habilidade',
-      `Tem certeza que deseja excluir "${skill.name}"?`,
-      [
-        {
-          text: 'Cancelar',
-          style: 'cancel',
-        },
-        {
-          text: 'Excluir',
-          style: 'destructive',
-          onPress: () => onDelete(skill.id),
-        },
-      ],
-      { cancelable: true }
-    );
+    onDelete(skill.id);
   };
 
   return (
@@ -94,7 +80,7 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skill, onEdit, onDelete })
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.actionButton}
-            onPress={handleDelete}
+            onPress={handleDelete} 
             activeOpacity={0.7}
           >
             <Trash2 size={20} color="#FF6B6B" />

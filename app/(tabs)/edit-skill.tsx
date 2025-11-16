@@ -89,11 +89,11 @@ export default function EditSkillScreen() {
     setSaving(false);
 
     if (success) {
-      // GARANTIDO: o retorno acontece após a confirmação do Alert.
+      // FLUXO CORRIGIDO: Alerta de Sucesso e Retorno à tela anterior
       Alert.alert('Sucesso', 'Habilidade atualizada com sucesso!', [
         {
           text: 'OK',
-          onPress: () => router.back(),
+          onPress: () => router.back(), 
         },
       ]);
     } else {
@@ -118,7 +118,7 @@ export default function EditSkillScreen() {
           onPress: async () => {
             const success = await deleteSkill(skill.id);
             if (success) {
-              // GARANTIDO: o retorno acontece após a confirmação do Alert.
+              // FLUXO CORRIGIDO: Alerta de Sucesso e Retorno à tela anterior
               Alert.alert('Sucesso', 'Habilidade removida com sucesso!', [
                 {
                   text: 'OK',

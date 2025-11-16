@@ -60,7 +60,7 @@ export default function HomeScreen() {
   const handleDelete = async (id: string) => {
     const success = await deleteSkill(id);
     if (success) {
-      // CORREÇÃO DE FLUXO: Garante que loadSkills é chamado no callback do Alert.
+      // Alerta de sucesso APÓS a exclusão bem-sucedida
       Alert.alert('Sucesso', 'Habilidade removida!', [
         { 
           text: 'OK', 

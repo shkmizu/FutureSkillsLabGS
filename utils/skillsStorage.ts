@@ -60,11 +60,20 @@ export const updateSkill = async (updatedSkill: Skill): Promise<boolean> => {
 export const deleteSkill = async (id: string): Promise<boolean> => {
   try {
     const skills = await getAllSkills();
-    const filteredSkills = skills.filter((s) => s.id !== id);
+    const skillIdToDelete = String(id); // Ensure string comparison
+
+    const filteredSkills = skills.filter((s) => s.id !== skillIdToDelete);
+
+    if (filteredSkills.length === skills.length) {
+        // If the number of skills did not change, the skill was not found.
+        console.warn(`Attempted to delete skill with ID ${skillIdToDelete}, but it was not found.`);
+    }
+
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(filteredSkills));
     return true;
   } catch (error) {
-    console.error('Error deleting skill:', error);
+    // This logs if there's a technical failure in AsyncStorage (e.g., storage limits)
+    console.error('CRITICAL ERROR during skill deletion (AsyncStorage failed):', error);
     return false;
   }
 };
