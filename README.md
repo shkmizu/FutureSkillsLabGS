@@ -1,5 +1,12 @@
 # Future Skills Lab
 
+## Integrantes
+
+* Vitor Shimizu – RM550390
+* Fabrizio Maia - RM551869
+* Victor Asfur - RM551684
+
+
 ## 🌐 Resumo do Projeto
 
 O **Future Skills Lab** é uma aplicação mobile (cross-platform) desenvolvida em **React Native** utilizando o *Managed Workflow* do **Expo** e o **Expo Router** para navegação. O objetivo central é fornecer aos usuários uma ferramenta estruturada para registrar, categorizar e acompanhar o desenvolvimento de competências (Hard Skills e Soft Skills) essenciais para o futuro do mercado de trabalho.
